@@ -11,7 +11,14 @@ const jwt = require("jsonwebtoken");
 const app = express();
 
 // ================== MIDDLEWARE ==================
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://roaring-zabaione-b28610.netlify.app/"
+    ],
+  })
+);
 app.use(express.json());
 
 // ================== DB ==================
