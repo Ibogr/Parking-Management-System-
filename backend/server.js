@@ -179,14 +179,15 @@ app.post("/report", authMiddleware, async (req, res) => {
 
     doc.on("end", async () => {
       const pdf = Buffer.concat(buffers);
-
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
-      });
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false, 
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
