@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://roaring-zabaione-b28610.netlify.app"
+      "https://parkingmanagementsysstem.netlify.app"
     ],
   })
 );
